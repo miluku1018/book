@@ -1,37 +1,59 @@
-<h1 class="title"><i class="fab fa-500px"></i>書本列表</h1>
-
-
-<%= paginate @books %>
+<div class="container is-fluid">
+  <div class="column is-4 is-offset-8">
+    <%= paginate @books %>
+  </div>
+</div>
 
 <section class="columns is-multiline">
-  <% @books.each do |book| %>
-    <div class="column is-3">
-      <div class="card">
-            <div class="card-image">
-              <figure class="image">
-              <%= cover_image_tag book, width: 300, dummy_img: true %>
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+  <div class="column is-2">
+    <aside class="menu">
+      <p class="menu-label">分類</p>
+       <ul class="menu-list">
+         <li><a>web控制</a></li>
+         <li><a>版本控制</a></li>
+         <li><a>資料庫</a></li>
+       </ul>
+      <p class="menu-label">出版社</p>
+       <ul class="menu-list">
+         <li><a>Dashboard</a></li>
+         <li><a>Customers</a></li>
+       </ul>
+    </aside>
+  </div>
+  
+  <div class="column is-10">
+    <h1 class="title"><i class="fab fa-500px"></i>書本列表</h1>
+    <div class="columns">
+      <% @books.each do |book| %>
+        <div class="column is-3">
+          <div class="card" style="height: 100%;">
+                <div class="card-image">
+                  <figure class="image">
+                  <%= cover_image_tag book, width: 300, dummy_img: true %>
                   </figure>
                 </div>
-                <div class="media-content">
-                  <p class="title is-4"><%= book.title%></p>
-                  <p class="subtitle is-6">@johnsmith</p>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4"><%= book.title%></p>
+                      <p class="subtitle is-6">@johnsmith</p>
+                    </div>
+                  </div>
+                  <div class="content">
+                      <%= book.description %>
+                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    <hr>
+                    <%= link_to "放入購物車", '#', class: 'button is-light is-small' %>
+                  </div>
                 </div>
-              </div>
-              <div class="content">
-                  <%= book.description %>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                <hr>
-                <%= link_to "放入購物車", '#', class: 'button is-light is-small' %>
-              </div>
             </div>
         </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </section>
