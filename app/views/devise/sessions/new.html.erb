@@ -1,14 +1,27 @@
-<h2>登入</h2>
+<h2 class= "title">會員登入</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, '電子信箱', class: 'label' %>
+    <div class="control has-icons-left">
+     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input' %>
+    <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+        <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password, '信箱密碼', class: 'label' %>
+    <div class="control has-icons-left">
+    <%= f.password_field :password, autocomplete: "current-password", class: 'input' %>
+          <span class="icon is-small is-left">
+        <i class="fas fa-key"></i>
+      </span>
+    </div>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,7 +32,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "登入" %>
   </div>
 <% end %>
 

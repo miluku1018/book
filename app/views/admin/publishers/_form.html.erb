@@ -1,0 +1,45 @@
+<% if publisher.errors.any? %>
+<ul>
+  <% publisher.errors.full_messages.each do |message|  %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for([:admin, publisher]) do |form| %>
+<div class="columns">
+
+  <div class="column is-3">
+    <div class="field">
+      <%= form.label :name, '出版社名稱', class: 'label'%>
+      <%= form.text_field :name, class: 'input'  %> 
+    </div>
+  </div>
+  <div class="column is-3">
+    <div class="field">
+        <%= form.label :tel, '電話', class: 'label'%>
+        <%= form.text_field :tel, class: 'input' %> 
+    </div>
+  </div>
+  <div class="column is-6">
+    <div class="field">
+        <%= form.label :address, '地址', class: 'label'%>
+        <%= form.text_area :address, class: 'input'  %>
+    </div>
+  </div>
+</div>
+
+<div class="field">
+  <%= form.label :note, '備註', class: 'label' %> 
+  <%= form.text_area :note, class: 'input' %>  <br>
+</div>
+
+  <div class="field">
+    <%= form.check_box :online %>
+    <%= form.label :online, '是否營運中?', class: 'checkbox' %>
+  </div>
+
+  <div class="field">
+    <%= form.submit class: 'button is-danger' %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<h1 class="title"><i class="fab fa-500px"></i>出版社列表</h1>
+
+<%= link_to "新增出版社", new_admin_publisher_path, class: 'button is-success'%>
+
+<table class="table is-fullwith">
+  <thead>
+    <tr>
+      <th>出版社名稱</th>
+      <th>電話</th>
+      <th>地址</th>
+      <th>備註</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class= "container">
+    <% @publishers.each do |publisher|%>
+     <tr>
+       <td><%= link_to publisher.name, edit_admin_publisher_path(publisher) %></td>
+       <td><%= publisher.tel %></td>
+       <td><%= publisher.address %></td>
+       <td><%= publisher.note %></td>
+       <td><%= link_to "編輯", edit_admin_publisher_path(publisher), class: "button is-info" %>
+           <%= link_to "刪除", admin_publisher_path(publisher), method: "delete", data: {confirm: "are you sure?" }, class: "button is-danger" %>
+        </td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
