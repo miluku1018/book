@@ -1,0 +1,15 @@
+<aside class="column is-2 is-fullheight menu">
+  <p class="menu-label">分類</p>
+    <ul class="menu-list">
+      <li><a>web控制</a></li>
+      <li><a>版本控制</a></li>
+      <li><a>資料庫</a></li>
+    </ul>
+  <p class="menu-label">出版社</p>
+    <ul class="menu-list">
+      <% publishers.each do |publisher| %>
+      <li><a> <%= link_to publisher.name, publisher_path(publisher) %></a></li>
+      <% end %>
+    </ul>
+</aside>
+

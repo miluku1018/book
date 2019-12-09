@@ -17,4 +17,6 @@ class User < ApplicationRecord
       user.avatar = auth.info.image 
     end
   end
+
+  has_many :comments
 end

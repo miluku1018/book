@@ -8,6 +8,8 @@ class Book < ApplicationRecord
     has_one_attached :cover_image
     belongs_to :publisher
 
+    has_many :comments
+
     # scope
     # def self.available
     #     where(on_sell: true).where('list_price > 0')
