@@ -34,6 +34,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'foreman', '~> 0.86.0'
+  gem 'omniauth-google-oauth2', '~> 0.8.0'
+  gem 'figaro', '~> 1.1', '>= 1.1.1'
 end
 
 group :development do
