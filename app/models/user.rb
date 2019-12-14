@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
+  #relationship
+  has_many :favorites
+  has_many :books, through: :favorites
 
   def employee?
     role.in? ['staff', 'boss', 'admin' ]

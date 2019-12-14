@@ -1,0 +1,28 @@
+<h1 class="title"><i class="fab fa-500px"></i>分類列表
+<%= link_to "新增分類", new_admin_category_path, class: 'button is-success'%>
+</h1>
+
+<table class="table is-fullwith">
+  <thead>
+    <tr>
+      <th>分類</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category|%>
+     <tr>
+       <td><%= category.title %></td>
+       <td></td>
+       <td></td>
+       <td><%= link_to "編輯", edit_admin_category_path(category), class: "button is-info is-small" %>
+           <%= link_to "刪除", admin_category_path(category), method: "delete", data: {confirm: "are you sure?" }, class: "button is-danger is-small" %>
+        </td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+

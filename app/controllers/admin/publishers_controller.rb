@@ -26,7 +26,7 @@ class Admin::PublishersController < Admin::BaseController
   def update
 
     if @publisher.update(publisher_params)
-      redirect_to edit_admin_publisher_path, notice: '資料更新成功'
+      redirect_to edit_admin_publisher_path(@publisher), notice: '資料更新成功'
     else
       render :edit
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_074850) do
+ActiveRecord::Schema.define(version: 2019_12_10_063346) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,8 +49,16 @@ ActiveRecord::Schema.define(version: 2019_12_09_074850) do
     t.datetime "updated_at", precision: 6, null: false
     t.date "published_at"
     t.integer "publisher_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_books_on_category_id"
     t.index ["isbn"], name: "index_books_on_isbn", unique: true
     t.index ["isbn13"], name: "index_books_on_isbn13", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -62,6 +70,15 @@ ActiveRecord::Schema.define(version: 2019_12_09_074850) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_comments_on_book_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_favorites_on_book_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "publishers", force: :cascade do |t|
@@ -92,6 +109,9 @@ ActiveRecord::Schema.define(version: 2019_12_09_074850) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "categories"
   add_foreign_key "comments", "books"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "books"
+  add_foreign_key "favorites", "users"
 end

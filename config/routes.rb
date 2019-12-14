@@ -7,13 +7,23 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'books#index'
   resources :publishers, only: [:show]
-  resources :comments, only: [:create]
+  resources :categories, only: [:show]
+
+  root 'books#index'
   
+  namespace :api do
+    resources :books, only: [] do
+      member do
+        post :favorite  #api/books/:id/favorite
+      end
+    end
+  end
+
   namespace :admin do
     root 'books#index'
     resources :books
     resources :publishers, except: [:show]
+    resources :categories, except: [:show]
   end
 end

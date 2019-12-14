@@ -5,3 +5,5 @@ require("channels")
 
 import '../stylesheets/index.js'
 import '../scripts'
+
+import "controllers"

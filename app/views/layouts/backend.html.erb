@@ -10,14 +10,12 @@
   </head>
 
   <body>
-       <%= render 'shared/backend/navbar' %>
-  <section class="section">
-    <div class='container'>
-      
-      <%= render 'shared/flash' if notice %>
-
-      <%= yield %>
-    </div>
-  <section>
+    <%= render 'shared/backend/navbar' %>
+     <section class="section">
+      <div class='container'>
+        <%= render 'shared/flash' if notice %>
+        <%= yield %>
+      </div>
+     <section>
   </body>
 </html>
