@@ -2,12 +2,12 @@ class Admin::BooksController < Admin::BaseController
   before_action :find_book, only: [:edit, :show, :update, :destroy]
   
   def index
-      @books = Book.available
-                    .with_attached_cover_image
-                    .page(params[:page])
-                    .per(4)
-      #select * from books
-    end
+    @books = Book.available
+                  .with_attached_cover_image
+                  .page(params[:page])
+                  .per(4)
+    #select * from books
+  end
   
   def new
     @book = Book.new
