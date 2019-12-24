@@ -29,18 +29,22 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.2'
+gem 'omniauth-google-oauth2', '~> 0.8.0'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'paranoia', '~> 2.4', '>= 2.4.2'
+gem 'aasm', '~> 5.0', '>= 5.0.6'
+gem "braintree", "~> 2.100.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'omniauth-google-oauth2', '~> 0.8.0'
   gem 'foreman', '~> 0.86.0'
-  gem 'figaro', '~> 1.1', '>= 1.1.1'
   gem 'hirb-unicode', '~> 0.0.5'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'faker', '~> 2.8', '>= 2.8.1'
   gem 'bootstrap', '~> 4.4.1'
+  
 end
 
 group :development do

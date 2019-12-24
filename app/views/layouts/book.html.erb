@@ -4,17 +4,24 @@
     <title>Bookstore2019</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="turbolinks-cache-control" content="no-cache">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= javascript_pack_tag 'braintree', 'data-turbolinks-track': 'reload' %>
+     <%# 原本放在pay.html.erb,後來移到head（不會被重新讀取,缺點是有使用book頁面都會執行,所以修改braintree.js設定, 改用判斷是否有dropin-container，如果有再執行）,因為換頁時turbolinks只換body，導致不會執行JS ...數學上的幂等 %>
+    
   </head>
   <body>
+  <%= render 'shared/modal' %>
    <%= render 'shared/frontend/navbar' %>
    <section class="section">
     <div class='container'>
       <%= render 'shared/flash' if notice %>
       <section class="columns is-fullheight">
-       <%= render 'shared/frontend/menu', publishers: Publisher.available, categories: Category.all %>
+       <div class="column is-2">
+        <%= render 'shared/frontend/menu', publishers: Publisher.available, categories: Category.all %>
+       </div>
        <div class="column is-10">
         <%= yield %>
        </div> 

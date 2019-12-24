@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.0.6)
+      concurrent-ruby (~> 1.0)
     actioncable (6.0.1)
       actionpack (= 6.0.1)
       nio4r (~> 2.0)
@@ -68,6 +70,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    braintree (2.100.0)
+      builder (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -171,6 +175,8 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     popper_js (1.14.5)
     public_suffix (4.0.1)
     puma (4.3.0)
@@ -295,8 +301,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 5.0, >= 5.0.6)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.4.1)
+  braintree (~> 2.100.0)
   byebug
   capybara (>= 2.15)
   devise (~> 4.2)
@@ -310,6 +318,7 @@ DEPENDENCIES
   kaminari (~> 1.1, >= 1.1.1)
   listen (>= 3.0.5, < 3.2)
   omniauth-google-oauth2 (~> 0.8.0)
+  paranoia (~> 2.4, >= 2.4.2)
   puma (~> 4.1)
   rails (~> 6.0.1)
   rspec-rails (~> 3.4, >= 3.4.2)

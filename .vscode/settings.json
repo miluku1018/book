@@ -1,4 +1,5 @@
 {
   "editor.tabSize": 2,
-  "workbench.colorTheme": "Atom One Light"
+  "workbench.colorTheme": "Atom One Light",
+  "liveServer.settings.port": 5501
 }

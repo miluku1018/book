@@ -1,0 +1,12 @@
+<h1 class="title">付款</h1>
+
+<div id="dropin-container"></div>
+<button id="submit-button" class="button is-primary">確認付款</button>
+
+<%= form_with url: paid_order_path(@order.num), id: 'payment-form' do |form| %>
+  <%= form.hidden_field :nonce %>
+<% end %>
+
+<input type="hidden" id="token" value="<%= @token %>"> 
+
+<%# 將token提供給JS , 因為JS無法直接使用Rails的token %>

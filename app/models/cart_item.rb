@@ -11,7 +11,7 @@ class CartItem
   end
 
   def product
-    Book.find_by(id: @product_id)
+    Book.find_by(id: product_id)
   end
 
   def total_price
